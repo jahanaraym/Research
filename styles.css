@@ -155,7 +155,8 @@ h2 {
 }
 
 .coauthor-form input,
-.coauthor-form select {
+.coauthor-form select,
+.coauthor-form textarea {
   width: 100%;
   border: 1px solid rgba(255, 208, 0, 0.55);
   background: #141414;
@@ -221,3 +222,5 @@ h2 {
     padding: 22px;
   }
 }
+
+
