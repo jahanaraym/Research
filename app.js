@@ -1,7 +1,13 @@
 const form = document.querySelector("#coauthor-form");
 const formNote = document.querySelector("#form-note");
 const config = window.COAUTHOR_FORM_CONFIG || {};
-const endpoint = (config.endpoint || "").trim();
+const defaultEndpoint =
+  "https://script.google.com/macros/s/AKfycbvyTjn593ARRQ83LHHXoprxlhn0LEd7RgKl3c7tePLXWsvq7SD1mLVlreWJ9PdB1SI/exec";
+const rawEndpoint = (config.endpoint || "").trim();
+const endpoint =
+  !rawEndpoint || rawEndpoint.includes("PASTE_YOUR_GOOGLE_APPS_SCRIPT")
+    ? defaultEndpoint
+    : rawEndpoint;
 const notifyEmail = (config.notifyEmail || "jahanaraym@vcu.edu").trim();
 const isAppsScriptEndpoint =
   /^https:\/\/script\.google\.com\/macros\/s\/.+\/exec$/i.test(endpoint);
@@ -45,15 +51,6 @@ if (form && formNote) {
     if (picked.length === 0) {
       showNote(
         "Please select at least one contribution area: Introduction or Discussion.",
-        false
-      );
-      return;
-    }
-
-    if (!endpoint || endpoint.includes("PASTE_YOUR_GOOGLE_APPS_SCRIPT")) {
-      event.preventDefault();
-      showNote(
-        "Form endpoint is not connected yet. Add your Google Apps Script Web App URL in index.html.",
         false
       );
       return;
