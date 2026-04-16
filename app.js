@@ -1,6 +1,9 @@
 ﻿const form = document.querySelector("#coauthor-form");
 const config = window.COAUTHOR_FORM_CONFIG || {};
-const endpoint = (config.endpoint || "").trim();
+const endpoint = (
+  config.endpoint ||
+  "https://script.google.com/macros/s/AKfycbvyTjn593ARRQ83LHHXoprxlhn0LEd7RgKl3c7tePLXWsvq7SD1mLVlreWJ9PdB1SI/exec"
+).trim();
 const notifyEmail = (config.notifyEmail || "jahanaraym@vcu.edu").trim();
 
 if (form) {
@@ -41,6 +44,8 @@ if (form) {
     upsertHidden(form, "notify_email", notifyEmail);
     upsertHidden(form, "source_page", window.location.href);
     upsertHidden(form, "user_agent", navigator.userAgent);
+
+    window.alert("Thanks for your submission, I will get back to soon, Mohammad");
 
     // Keep user flow clean; submit in hidden iframe and reset shortly after.
     setTimeout(() => form.reset(), 250);
