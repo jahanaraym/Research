@@ -72,6 +72,9 @@
           <label class="check-option"><input type="checkbox" name="contribution" value="discussion"> Writing Discussion</label>
         </fieldset>
 
+        <label for="optional-details">Optional details I should know (if needed)</label>
+        <textarea id="optional-details" name="optional_details" rows="4" placeholder="Share any context, timeline, or notes."></textarea>
+
         <button type="submit">Submit Interest</button>
         <p id="form-note" class="form-note" aria-live="polite"></p>
       </form>
@@ -80,10 +83,12 @@
   <iframe name="coauthor_submit_frame" style="display:none" aria-hidden="true"></iframe>
   <script>
     window.COAUTHOR_FORM_CONFIG = {
-      endpoint: "https://script.google.com/macros/s/AKfycbzuGQ1b59eNdkWhkAs3zE0jbvfEKhdnsvXBnl0YvUr-FpAsIWY-zkVwPuSg0Z5cpa916g/exec",
+      endpoint: "https://script.google.com/macros/s/AKfycbvyTjn593ARRQ83LHHXoprxlhn0LEd7RgKl3c7tePLXWsvq7SD1mLVlreWJ9PdB1SI/exec",
       notifyEmail: "jahanaraym@vcu.edu"
     };
   </script>
   <script src="./app.js"></script>
 </body>
 </html>
+
+
